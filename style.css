@@ -1,5 +1,5 @@
 body {
-	background-color: #778899;
+	background-color: white;
 }
 ul {
 	list-style-type: none;
@@ -10,4 +10,5 @@ li a {
 	display: block;
 	width: 60px;
 }
+.active
 	
