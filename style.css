@@ -1,11 +1,13 @@
 body {
 	background-color: #778899;
 }
-il {
+ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 }
-	
-	
+li a {
+	display: block;
+	width: 60px;
+}
 	
