@@ -3,22 +3,7 @@ body {
 	background-color: white;
 	text-align: center;
 }
-/*
-ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-}
-li a {
-	display: block;
-	width: 60px;
-}
-h1 {
-	text-align: center;
-	color: blue;
-	text-shadow: 10%;
-}
-*/
+
 img {
 	width: 200px;
 	border-radius: 50%;
