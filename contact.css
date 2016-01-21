@@ -7,7 +7,7 @@ ul {
     position: fixed;
     top: 0;
     width: 100%;
-	display: block; 
+	display: block;
 }
 
 li {
@@ -28,7 +28,4 @@ li a:hover:not(.active) {
 
 .active {
     background-color: #4CAF50;
-}
-body {
-	background-color: #E8E8E8;
 }
