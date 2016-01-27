@@ -6,6 +6,7 @@
     padding: 200px;
     position: relative;
     z-index: 2;
+	font-family: "Open sans";
 } 
 .my-container img {
     position: absolute;
