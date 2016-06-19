@@ -1,8 +1,6 @@
 
 body {
 	background-color: white;
-	text-align: center;
-	color: white;
 }
 
 img {
@@ -11,10 +9,11 @@ img {
 }
 
 .pead {
-	background-color:#0000CC; 
+    background-color:#0000CC; 
     color: white;
     text-align:center;
     padding:5px;
+    
 	
 }
 /*
