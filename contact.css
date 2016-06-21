@@ -1,3 +1,5 @@
+@font-face { font-family: Delicious; src: url('Bariol_Regular.otf'); }
+@font-face { font-family: Ailerons; src: url('Ailerons-Typeface.otf'); }
 ul {
     list-style-type: none;
     margin: 0;
@@ -28,4 +30,12 @@ li a:hover:not(.active) {
 
 .active {
     background-color: #4CAF50;
+}
+.head{
+	font-family: Delicious;
+	font-size: 250%;
+}
+h3 {
+	font-family: Delicious;
+	
 }
