@@ -1,6 +1,8 @@
-
+@font-face { font-family: Delicious; src: url('Bariol_Regular.otf'); }
+@font-face { font-family: Ailerons; src: url('Ailerons-Typeface.otf'); }  
 body {
-	background-color: white;
+	background-color: #99ccff;
+	
 }
 
 img {
@@ -13,10 +15,19 @@ img {
     color: white;
     text-align:center;
     padding:5px;
+	font-family: Delicious;
 }
 .pead1 {
-    background-image: url("IMG_0043.JPG");
+	background-color: blue;
+	color: white;
+	text-align:center;
+	/*#000080*/
+	font-family: Delicious;
+	
    
+}
+.pead2 {
+	
 }
 /*
 ul {
