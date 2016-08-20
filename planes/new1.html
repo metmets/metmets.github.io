@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Summer Game</title>
+    </head>
+    <body>
+        <h1 style="font-family:helvetica">Ice Cream on a Summer Day</h1>
+        <p style="font-family:consolas">Use WASD to get the ice cream cone to Spongebob! Careful though, don't melt!</p>
+        <script>
+            var width1 = 800;
+            var height1 = 600;
+            var backgroundImage;
+            var wN;
+            var wS;
+            var wW;
+            var wE;
+​
+            var player;
+            var playerSize = 1;
+            var playerImage;
+            var playerSpeed = 4;
+            
+            var objective;
+            var objectiveSize = 30;
+            var objectiveImage;
+            var speedX = 5;
+            var speedY = 5;
+​
+            var sun;
+            var sunSize = 1;
+            var sunImage;
+            var sunSpeed = 2;
+            
+            var fire;
+            var fireSize = 1;
+            var fireImage;
+            var fireSpeed = 2;
+            
+            var jaime;
+            var jaimeSize = 1;
+            var jaimeImage;
+            var jaimeSpeed = 1.5;
+            
+            var time = 0;
+            var score = 0;
+            var started = false;
+            var dead = false;
+            var killer = "w";
+            function preload(){
+                playerImage = loadImage("http://i.imgur.com/3bctABH.png");
+                objectiveImage = loadImage("http://i.imgur.com/LS6Zzfp.png");
+                backgroundImage = loadImage("http://i.imgur.com/dewnCCD.png");
+                sunImage = loadImage("http://i.imgur.com/ppOlEoQ.png");
+                fireImage = loadImage("http://i.imgur.com/PTrAZgj.gif");
+                jaimeImage = loadImage("http://i.imgur.com/8zWIlkA.png");
+                
+            }
+​
+            function setup(){
+                player = createSprite(
+                    width1/2,height1/2,playerSize,playerSize);
+                player.addImage(playerImage);
+                
+                objective = createSprite(
+                    width1/2,height1*3/4,objectiveSize,objectiveSize);
+                objective.addImage(objectiveImage);
+​
+                sun = createSprite(
+                    width1*3/4,height1/2,sunSize,sunSize);
+                createCanvas(width1,height1);
+                sun.addImage(sunImage);
+                
+                fire = createSprite(
+                    width1*3/4,height1/4,fireSize,fireSize);
+                createCanvas(width1,height1);
+                fire.addImage(fireImage);
+                
+                jaime = createSprite(
+                    width1/6,height1/6,jaimeSize,jaimeSize);
+                createCanvas(width1,height1);
+                jaime.addImage(jaimeImage);
+                
+                wN = createSprite(width/2,0,width,1);
+                wE = createSprite(width,height/2,1,height);
+                wS = createSprite(width/2,height,width,1);
+                wW = createSprite(0,height/2,1,height);
+​
+                setInterval(function(){
+                    if(keyDown("w") ||
+                       keyDown("a") ||
+                      keyDown("s") ||
+                      keyDown("d"))
+                        started = true;
+                },1);
+            }
+            function draw(){
+                if(player.overlap(objective))
+                    level++;
+                
+                if(started){
+                    objective.position.x += speedX;
+                    objective.position.y += speedY;
+                    
+                    if(sun.position.x < player.position.x)
+                        sun.position.x += sunSpeed*Math.random();
+                    else
+                        sun.position.x -= sunSpeed*Math.random();
+                    if(sun.position.y < player.position.y)
+                        sun.position.y += sunSpeed*Math.random();
+                    else
+                        sun.position.y -= sunSpeed*Math.random();
+​
+                    if(fire.position.x < player.position.x)
+                        fire.position.x += fireSpeed*Math.random();
+                    else
+                        fire.position.x -= fireSpeed*Math.random();
+                    if(fire.position.y < player.position.y)
+                        fire.position.y += fireSpeed*Math.random();
+                    else
+                        fire.position.y -= fireSpeed*Math.random();
+​
+                    if(jaime.position.x < player.position.x)
+                        jaime.position.x += jaimeSpeed*Math.random();
+                    else
+                        jaime.position.x -= jaimeSpeed*Math.random();
+                    if(jaime.position.y < player.position.y)
+                        jaime.position.y += jaimeSpeed*Math.random();
+                    else
+                        jaime.position.y -= jaimeSpeed*Math.random();
+                }
+                
+                objective.bounce(wN,function(){speedY *= -1;});
+                objective.bounce(wE,function(){speedX *= -1;});
+                objective.bounce(wS,function(){speedY *= -1;});
+                objective.bounce(wW,function(){speedX *= -1;});
+                
+                if(started){
+                    if(keyDown("a")){
+                    player.position.x -= playerSpeed;
+                  }
+                  if(keyDown("d")){
+                    player.position.x += playerSpeed;
+                  }
+                  if(keyDown("w")){
+                    player.position.y -= playerSpeed;
+                  }
+                  if(keyDown("s")){
+                    player.position.y += playerSpeed;
+                  }
+                    setInterval(function(){
+                        if(started)
+                            time += .001; 
+                    },1);
+                }
+                
+                if(player.overlap(objective)){
+                    score++;
+                    objective.position.x = objectiveSize + Math.random() * (width - objectiveSize * 2);
+                    objective.position.y = objectiveSize + Math.random() * (height - objectiveSize * 2);
+                }
+                if(player.overlap(wN) ||
+                  player.overlap(wE) ||
+                  player.overlap(wS) ||
+                  player.overlap(wW))
+                    dead = true;
+                    
+                if(player.overlap(sun)){
+                    dead = true;
+                    killer = "s";
+                }
+                if(player.overlap(fire)){
+                    dead = true;
+                    killer = "f";
+                }
+                if(player.overlap(jaime)){
+                    dead = true;
+                    killer = "j";
+                }
+                
+                if(dead){
+                    gameOver();
+                }
+                
+                
+                
+                background(111,243,217);
+                textSize(36);
+                textFont("Consolas");
+                text("SCORE: " + score, width1*2/3,height1/5);
+                drawSprites();
+            }
+​
+            function gameOver(){
+                textFont("Impact");
+                textSize(200);
+                text("MELTED",width/10,height/2);
+                textSize(36);
+                if(killer == "s"){
+                    text("BY THE SUN",width/8,height*3/5);
+                    textFont("Consolas");
+                    text("always leave a way out",width/8,height*7/8);
+                }
+                else if(killer == "f"){
+                    text("BY FIRE",width/8,height*3/5);
+                    textFont("Consolas");
+                    text("don't get cornered",width/8,height*7/8);
+                }
+                else if(killer == "j"){
+                    text("BY JAIME LANNISTER",width/8,height*3/5);
+                    textFont("Consolas");
+                    text("steady their movements",width/8,height*7/8);
+                }
+                else{
+                    text("BY YOUR OWN COWARDICE",width/8,height*3/5);
+                    textFont("Consolas");
+                    text("don't touch the walls",width/8,height*7/8);
+                }
+                
+                exit();
+            }
+        </script>
+    </body>
+    <script src="http://rawgit.com/jonleung/33aa8dcb08ce87d689a6/raw/9a3acc3f39ea114aadc1ab87c75f518c553f54ca/p5.js"></script>
+    <script src="http://rawgit.com/jonleung/33aa8dcb08ce87d689a6/raw/9a3acc3f39ea114aadc1ab87c75f518c553f54ca/p5.play.js"></script>
+</html>

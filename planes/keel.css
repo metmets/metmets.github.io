@@ -1,0 +1,17 @@
+@font-face { font-family: Delicious; src: url('Bariol_Regular.otf'); }
+h1 {
+	font-family: Delicious;
+	text-align:center;
+}
+p {
+	font-family: Delicious;
+	text-align: center;
+}
+.ing {
+	width: 400px;
+	height: 200px;
+}
+.ee {
+	width: 400px;
+	height: 200px:
+}

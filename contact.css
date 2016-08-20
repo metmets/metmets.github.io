@@ -34,11 +34,24 @@ li a:hover:not(.active) {
 .active {
     background-color: #4CAF50;
 }
-.head{
+.head1{
 	font-family: Delicious;
 	font-size: 250%;
+	background-color: #ccffff;
 }
 h3 {
 	font-family: Delicious;
 	
+}
+.head{
+	background-color: #ccffff;
+}
+body {
+	background-color: white;
+}
+.e-mail {
+	background-color: #33ffff;
+}
+p {
+	font-family: Delicious;
 }
