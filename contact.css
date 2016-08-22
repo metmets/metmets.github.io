@@ -37,20 +37,20 @@ li a:hover:not(.active) {
 .head1{
 	font-family: Delicious;
 	font-size: 250%;
-	background-color: #ccffff;
+	background-color: white;
 }
 h3 {
 	font-family: Delicious;
 	
 }
 .head{
-	background-color: #ccffff;
+	background-color: white;
 }
 body {
 	background-color: white;
 }
 .e-mail {
-	background-color: #33ffff;
+	background-color: white;
 }
 p {
 	font-family: Delicious;
