@@ -2,10 +2,12 @@
   <head>
     <script src="main.js"></script>
     <script src="adframe.js"></script>
+	<link rel="stylesheet" type="text/css" href="cs.css">
 
     
   </head>
   <body>
+	<link rel="stylesheet" type="text/css" href="cs.css">
     <h1> Adblock test detect page</h1>
     <p> Just turn on your adblock and see the alert!</p>
     <h3>Todo:</h3>
@@ -17,9 +19,18 @@
     <script type="text/javascript" src="adframe.js"></script>
     <script type="text/javascript">
     if(adblock) {
-          alert("Ad blocking software detected! Please turn it off!");
+        document.getElementById("alert").style.display= "block";
     }
+	else {
+		document.getElementById("alert").style.display= "none";
+	}
     </script>
+	<div class="alert">
+		<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;
+	</span> 
+		This is an alert box.
+	</div>
+	
     
     
     
