@@ -11,8 +11,17 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/hea.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<script>
+		$(document).ready(function(){
+		    $("#nupp").click(function(){
+		        $("#panel").slideToggle("slow");
+		    });
+		});
+		</script>
 	</head>
 	<body>
 
@@ -37,6 +46,13 @@
 							<h1 class="major">Short/med haul</h1>
 							<span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
 							<p>Mõnusad paaritunnised hopid, perfektsed kui tahad euroopas ringi kärutada ATC-ga.</p>
+							<ul class="actions">
+							<!--LENNUPLAANID-->
+							<h1 class="major">Lennuplaanid</h1>
+							<h2> ENGM ➡️ EHAM </h2>
+							<li><buttonc class="button" id="nupp">ENGM➡️EHAM FPLAN</button></li>
+								<div id="panel"><b>FLIGHT TIME 1:38</b><br>TOR P601 BAVTA N873 TUSKA UN873 JUIST UP174 EEL<br>ALT: EVEN(FL340)<br>737 FUEL: FOB:6844(2:53) RESERV:2955(1:15) USAGE:3889(1:38)</div>
+							</ul>
 						</div>
 					</section>
 
@@ -59,6 +75,7 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 	</body>
 </html>
